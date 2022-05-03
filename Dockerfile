@@ -25,7 +25,7 @@ RUN export PATH=$PATH:/gcc_compiled/bin/lib64
 
 
 #valgrind part
-WORKDIR cd /
+WORKDIR /
 RUN wget ftp://sourceware.org/pub/valgrind/valgrind-3.13.0.tar.bz2
 RUN tar -xvf valgrind-3.13.0.tar.bz2
 WORKDIR /valgrind-3.13.0
