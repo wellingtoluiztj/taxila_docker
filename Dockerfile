@@ -20,8 +20,8 @@ RUN ./contrib/download_prerequisites
 RUN ./configure --enable-languages=c,c++,fortran,objc,obj-c++ --prefix=/gcc_compiled/bin --disable-multilib
 RUN make -j18
 RUN make install 
-RUN export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/gcc_compiled/bin/lib64 #needs atention
-RUN export PATH=$PATH:/gcc_compiled/bin/lib64
+ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/gcc_compiled/bin/lib64 #needs atention
+ENV PATH=$PATH:/gcc_compiled/bin/lib64
 
 
 #valgrind part
@@ -62,8 +62,8 @@ RUN tar -xvf petsc-lite-3.4.4.tar.gz
 WORKDIR /petsc-3.4.4
 RUN ./configure --with-x=0 --with-mpi-dir=/mpi_compiled/openmpi-3.1.2 --with-mpiexec=/mpi_compiled/openmpi-3.1.2/bin/mpirun --with-blas-lib=/open_blas/lib/libopenblas.a --with-lapack-lib=/open_blas/lib/libopenblas.a --known-mpi-shared-libraries=0 --with-shared-libraries=0 --with-valgrind=yes –with-valgrind-dir=/valgrind/bin/bin/
 RUN make PETSC_DIR=/petsc-3.4.4 PETSC_ARCH=arch-linux2-c-debug all
-RUN export /petsc-3.4.4
-RUN export LBM_DIR=/taxila_folder/taxila-font-Mar14
+ENV PETSC_DIR=/petsc-3.4.4
+ENV LBM_DIR=/taxila_folder/taxila-font-Mar14
 
 ###taxila part
 WORKDIR /
