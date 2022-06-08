@@ -1,5 +1,7 @@
 # Taxila Docker
 
+To install Taxila on ubuntu system, we need to have docker container. The reason is because, Taxila uses library PETSc 3.17 (Portable, Extensible Toolkit for Scientific Computation), a suite of data structures and routines for the scalable (parallel) solution of scientific applications modeled by partial differential equations. 
+
 ### 1°
 
 - Para iniciar o docker vá onde está o arquivo Dockerfile e rode:
